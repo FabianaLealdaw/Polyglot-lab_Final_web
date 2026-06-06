@@ -204,14 +204,14 @@ header {
 ========================= */
 .gallery {
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
   max-width: 1200px;
-  --bs-gutter-x: 2rem;
-  --bs-gutter-y: 2rem;
 }
 
 .gallery figure {
   margin: 0;
-  padding: 0.5rem;
 }
 
 .gallery img {
