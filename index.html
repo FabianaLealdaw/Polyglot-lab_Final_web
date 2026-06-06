@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Polyglot Lab</title>
+
+    <!-- Bootstrap: carrusel y componente accordion -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+
+    <!-- style.css: estilos generales -->
+    <link rel="stylesheet" href="CSS/style.css" >
+
+    <!-- Librería Font Awesome para iconos (redes sociales, etc.) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+
+    <!-- Optimización y carga de la fuente desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    >
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    >
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  </head>
+
+  <body>
+    <!-- Header con navegación principal -->
+    <header>
+      <nav class="navbar" aria-label="Primary navigation">
+        <!-- Enlaces principales del menú -->
+        <a href="#inicio" class="active">Home</a>
+        <a href="./views/courses.html">Courses</a>
+        <a href="./galeria.html">Gallery</a>
+        <a href="./contacto.html">Contact</a>
+        <a href="./views/get_a_quote.html">Get a Quote</a>
+
+        <!-- Logo de la marca -->
+        <a class="nav-logo" href="#inicio">
+          <img src="./assets/images/Logo_PL.png" alt="Polyglot Lab" >
+        </a>
+
+        <!-- Botón CTA principal del menú -->
+        <a href="./views/get_a_quote.html" class="nav-cta">Start now</a>
+      </nav>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main id="inicio">
+      <!-- Carrusel Bootstrap con 5 imagenes minimo -->
+      <section class="carousel-section" aria-label="Polyglot Lab spaces">
+        <h2 class="section-title">Inside Polyglot Lab</h2>
+        <div
+          id="polyglotCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#polyglotCarousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#polyglotCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#polyglotCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#polyglotCarousel"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#polyglotCarousel"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./assets/images/gallery/clase1.jpg"
+                class="d-block w-100"
+                alt="Group language class"
+              >
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/images/gallery/clase2.jpg"
+                class="d-block w-100"
+                alt="Student learning languages"
+              >
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/images/gallery/clase3.jpg"
+                class="d-block w-100"
+                alt="Young learners in class"
+              >
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/images/gallery/clase4.jpg"
+                class="d-block w-100"
+                alt="Private language lesson"
+              >
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./assets/images/gallery/clase5.jpg"
+                class="d-block w-100"
+                alt="Polyglot Lab classroom"
+              >
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#polyglotCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#polyglotCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Seccion de 4 cards -->
+      <section class="learning-pillars">
+        <h2 class="section-title">How we learn</h2>
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <h3>Speaking practice</h3>
+            <p>Real conversations from the first lessons.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Small groups</h3>
+            <p>Close support and active participation for every student.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Culture focus</h3>
+            <p>Language learning connected to everyday life and culture.</p>
+          </article>
+          <article class="pillar-card">
+            <h3>Flexible paths</h3>
+            <p>In-person and online options adapted to each learner.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Componente Bootstrap adicional: accordion -->
+      <section class="faq-section">
+        <h2 class="section-title">Student questions</h2>
+        <div class="accordion" id="studentQuestions">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#questionOne"
+                aria-expanded="true"
+                aria-controls="questionOne"
+              >
+                Can I start as a complete beginner?
+              </button>
+            </h3>
+            <div
+              id="questionOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#studentQuestions"
+            >
+              <div class="accordion-body">
+                Yes. Our beginner courses start with practical vocabulary,
+                pronunciation and guided conversation.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#questionTwo"
+                aria-expanded="false"
+                aria-controls="questionTwo"
+              >
+                Are online classes available?
+              </button>
+            </h3>
+            <div
+              id="questionTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#studentQuestions"
+            >
+              <div class="accordion-body">
+                Yes. Students can choose online lessons or attend classes in
+                Barcelona.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección hero reutilizada del proyecto original -->
+      <section class="hero">
+        <h1>One Lab. Many languages. One world.</h1>
+        <p><i>Languages aren’t meant to stay in books.</i></p>
+        <p>
+          At Polyglot Lab, we turn learning into real communication through
+          practice, culture, and a supportive environment where making mistakes
+          is part of the process.
+        </p>
+        <p>Experiment. Practice. Speak.</p>
+      </section>
+
+      <!-- Sección de noticias -->
+      <section class="news-section">
+        <div class="news-wrapper">
+          <h2 class="section-title">Latest news</h2>
+          <p class="section-subtitle">
+            Updates and announcements from Polyglot Lab
+          </p>
+
+          <div id="news-container" class="news-grid">
+            <!-- Las noticias se cargaran aqui -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de galería -->
+      <section class="gallery-section">
+        <h2 class="section-title">Gallery</h2>
+        <p class="gallery-subtitle">
+          A glimpse of our learning spaces and activities
+        </p>
+
+        <div id="gallery" class="gallery">
+          <figure>
+            <img
+              src="./assets/images/gallery/clase1.jpg"
+              alt="Language class"
+            >
+          </figure>
+          <figure>
+            <img
+              src="./assets/images/gallery/clase2.jpg"
+              alt="Student studying"
+            >
+          </figure>
+          <figure>
+            <img
+              src="./assets/images/gallery/clase3.jpg"
+              alt="Kids learning together"
+            >
+          </figure>
+          <figure>
+            <img
+              src="./assets/images/gallery/clase4.jpg"
+              alt="Private lesson"
+            >
+          </figure>
+          <figure>
+            <img src="./assets/images/gallery/clase5.jpg" alt="Language lab" >
+          </figure>
+          <figure>
+            <img src="./assets/images/gallery/adults.jpg" alt="Adult class" >
+          </figure>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal">
+          <img id="modal-img" src="./assets/images/gallery/clase1.jpg" alt="Enlarged gallery image" >
+        </div>
+        
+      </section>
+      <!-- Sección de cursos -->
+      <section class="courses" id="courses">
+        <h2 class="courses-title">Our languages</h2>
+        <p class="courses-subtitle">
+          We offer comprehensive programs in the most in-demand languages,
+          taught by native and certified teachers.
+        </p>
+
+        <!-- Contenedor de las tarjetas de cursos -->
+        <div class="courses-wrap">
+          <!-- Tarjeta de curso: English -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/english.svg"
+              alt="English course"
+            >
+            <h3 class="course-name">English</h3>
+
+            <!-- Información desplegable del curso -->
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                Build confidence in speaking, improve listening, and master
+                everyday grammar with real-life practice.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+
+          <!-- Tarjeta de curso: Spanish -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/spanish.svg"
+              alt="Spanish course"
+            >
+            <h3 class="course-name">Spanish</h3>
+
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                Learn practical Spanish for travel, work, and daily life with
+                interactive conversation-based lessons.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+
+          <!-- Tarjeta de curso: Italian -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/italian.svg"
+              alt="Italian course"
+            >
+            <h3 class="course-name">Italian</h3>
+
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                A friendly approach to Italian with pronunciation, essentials,
+                and culture so you can speak from day one.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+
+          <!-- Tarjeta de curso: French -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/french.svg"
+              alt="French course"
+            >
+            <h3 class="course-name">French</h3>
+
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                Improve your pronunciation, build essential vocabulary, and
+                start having real conversations from the very first lessons.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+
+          <!-- Tarjeta de curso: Deutsch -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/deutsch.svg"
+              alt="German course"
+            >
+            <h3 class="course-name">Deutsch</h3>
+
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                Learn practical German with clear structure: grammar made
+                simple, useful phrases, and speaking practice for everyday
+                situations.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+
+          <!-- Tarjeta de curso: Korean -->
+          <article class="course-card">
+            <img
+              width="100"
+              height="100"
+              class="course-img"
+              src="./assets/images/korean.svg"
+              alt="Korean course"
+            >
+            <h3 class="course-name">Korean</h3>
+
+            <details class="course-details">
+              <summary class="course-more">Ver más</summary>
+              <p class="course-desc">
+                Master Hangul quickly, improve pronunciation, and build solid
+                speaking skills with fun, step-by-step lessons and real-life
+                dialogues.
+              </p>
+              <a class="course-cta" href="./views/get_a_quote.html"
+                >Start now</a
+              >
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- Sección de mapa / localización -->
+      <section class="contact-section">
+        <h2 class="contact-title">Contact</h2>
+
+        <p class="contact-subtitle">Find us here or get in touch with us</p>
+
+        <div class="map-wrapper">
+          <div
+            id="map"
+            class="map-frame"
+            role="application"
+            aria-label="Polyglot Lab map and route"
+          >
+          </div>
+        </div>
+
+        <div class="map-button-wrapper">
+          <a
+            id="directions-link"
+            class="map-button"
+            href="https://www.google.com/maps/dir/?api=1&destination=41.38535,2.14672"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get directions
+          </a>
+        </div>
+      </section>
+
+      <!-- Sección del formulario -->
+      <section>
+        <!-- Formulario para pedir presupuesto -->
+        <form id="formulario-web" class="formulario" name="webForm">
+          <h2>Get a Quote!</h2>
+
+          <!-- =====================
+              CONTACT INFORMATION
+              ===================== -->
+
+          <!-- Campo: nombre -->
+          <label for="nombre">Name</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Your Name"
+            required
+            pattern="[A-Za-zÀ-ÿ\s]{3,40}"
+            minlength="3"
+            maxlength="40"
+            title="Name must contain only letters and spaces, between 3 and 40 characters"
+          >
+
+          <!-- Campo: apellidos -->
+          <label for="apellidos">Surname</label>
+          <input
+            type="text"
+            id="apellidos"
+            name="apellidos"
+            placeholder="Your Surname"
+            required
+            pattern="[A-Za-zÀ-ÿ\s]{4,60}"
+            minlength="4"
+            maxlength="60"
+            title="Surname must contain only letters and spaces, between 4 and 60 characters"
+          >
+
+          <!-- Campo: email -->
+          <label for="correo">Email</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="your@email.com"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          >
+
+          <!-- Campo: teléfono -->
+          <label for="telefono">Phone number</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="123456789"
+            required
+            pattern="[0-9]{9}"
+            title="Phone must contain exactly 9 numbers"
+          >
+
+          <!-- Campo: descripción -->
+          <label for="descripcion">Description</label>
+          <textarea
+            id="descripcion"
+            name="descripcion"
+            placeholder="Tell us more about you..."
+            rows="5"
+            title="Description must be between 10 and 300 characters"
+          ></textarea>
+
+          <!-- =====================
+              COURSE SELECTION
+              ===================== -->
+
+          <label for="curso">Choose a course</label>
+          <select id="curso" name="curso">
+            <option value="300">General English – 300€</option>
+            <option value="450">Intensive Course – 450€</option>
+            <option value="250">Online Course – 250€</option>
+          </select>
+
+          <label for="meses">Number of months</label>
+          <input
+            type="number"
+            id="meses"
+            name="meses"
+            min="1"
+            max="12"
+            value="1"
+          >
+          <label for="plazo">Delivery time (days):</label>
+          <input 
+            type="number" 
+            id="plazo" 
+            min="1" 
+            required
+          >
+
+          <!-- =====================
+              EXTRAS
+              ===================== -->
+
+          <fieldset class="extras">
+            <legend>Extras</legend>
+
+            <label>
+              <input
+                type="checkbox"
+                class="extra"
+                name="extra-workshops"
+                value="50"
+              >
+              <span>Conversation workshops (+50€)</span>
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                class="extra"
+                name="extra-materials"
+                value="30"
+              >
+              <span>Learning materials (+30€)</span>
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                class="extra"
+                name="extra-exam"
+                value="70"
+              >
+              <span>Exam preparation (+70€)</span>
+            </label>
+          </fieldset>
+          
+          <!-- =====================
+              TOTAL PRICE
+              ===================== -->
+          <p id="total-price">Total: €0</p>
+
+          <!-- Aceptación de política de privacidad -->
+          <div class="privacy">
+            <input type="checkbox" id="privacy" name="privacy" required >
+            <label for="privacy">
+              I accept the
+              <a href="./views/privacy.html" target="_blank">Privacy Policy</a>
+            </label>
+          </div>
+
+          <!-- Botón de envío -->
+          <button type="submit">Send</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+      <section id="news-detail" class="news-detail-section">
+        <div class="news-wrapper">
+          <h2 class="section-title">News</h2>
+          <p class="section-subtitle">
+            Detailed information about our latest updates
+          </p>
+
+          <div id="news-detail-container">
+            <!-- Full news content will be loaded here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer de la web -->
+    <footer>
+      <div>
+        <!-- Bloque de identidad / visión -->
+        <div class="vision">
+          <img src="./assets/images/Logo_PL.png" alt="Logo" width="200" >
+          <p>
+            Your language lab, where the passion for learning meets academic
+            excellence in a warm and welcoming environment.
+          </p>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div class="quick_links">
+          <h3>Quick Links</h3>
+          <nav>
+            <a href="#inicio">Home</a>
+            <a href="./views/courses.html">Courses</a>
+            <a href="./galeria.html">Gallery</a>
+            <a href="./contacto.html">Contact</a>
+            <a href="./views/get_a_quote.html">Get a Quote</a>
+            <a href="./views/legal_notice.html">Legal Notice</a>
+          </nav>
+        </div>
+
+        <!-- Información de contacto -->
+        <div class="contact">
+          <h3>Contact</h3>
+          <address>
+            <ul>
+              <li>info@polyglotlab.com</li>
+              <li>+34 123 456 789</li>
+              <li>Learning Street 123 Barcelona, Spain</li>
+            </ul>
+          </address>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="social_media">
+          <h3>Social media</h3>
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/company/polyglot-lab">
+                <i class="fa-brands fa-linkedin fa-2xl"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/polyglotlab/">
+                <i class="fa-brands fa-instagram fa-2xl"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Separador visual del footer -->
+      <div class="divide"></div>
+
+      <!-- Copyright -->
+      <p>Copyright 2025</p>
+    </footer>
+
+    <!-- Librería jQuery para funcionalidades interactivas -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- News (solo en index) -->
+    <script src="js/news.js"></script>
+
+    <!-- Gallery modal -->
+    <script src="./js/gallery.js"></script>
+
+    <!-- presupuesto -->
+    <script src="./js/budget.js"></script>
+
+    <!-- mapa -->
+    <script src="./js/map.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
