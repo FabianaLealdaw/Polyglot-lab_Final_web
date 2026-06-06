@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "https://www.google.com/maps/dir/?api=1&destination=41.38535,2.14672";
   }
 
-  if (!navigator.geolocation || !L.Routing) return;
+  if (!navigator.geolocation) return;
 
   navigator.geolocation.getCurrentPosition(
     ({ coords }) => {
@@ -35,20 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
           `https://www.google.com/maps/dir/?api=1&origin=${client[0]},${client[1]}&destination=41.38535,2.14672`;
       }
 
-      L.Routing.control({
-        waypoints: [L.latLng(client[0], client[1]), L.latLng(...masterD)],
-        addWaypoints: false,
-        draggableWaypoints: false,
-        fitSelectedRoutes: true,
-        show: false,
-        lineOptions: {
-          styles: [{ color: "#e86b63", weight: 5, opacity: 0.85 }],
-        },
-        createMarker(index, waypoint) {
-          const label = index === 0 ? "Your location" : "MasterD Barcelona";
-          return L.marker(waypoint.latLng).bindPopup(label);
-        },
+      const userMarker = L.marker(client).addTo(map);
+      userMarker.bindPopup("Your location").openPopup();
+      L.polyline([client, masterD], {
+        color: "#e86b63",
+        weight: 5,
+        opacity: 0.85,
       }).addTo(map);
+      map.fitBounds([client, masterD], { padding: [40, 40] });
 
       requestAnimationFrame(() => {
         map.invalidateSize();

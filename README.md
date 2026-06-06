@@ -5,20 +5,21 @@ Proyecto web independiente reutilizado a partir de una copia del proyecto Polygl
 ## Páginas principales
 
 - `index.html`
-- `galeria.html`
-- `contacto.html`
+- `views/gallery.html`
+- `views/contact.html`
 
 ## Estado Git
 
-La carpeta `.git` del repositorio anterior se ha eliminado para desvincular esta copia del proyecto original.
+Este proyecto está conectado al repositorio independiente:
 
-Para conectarlo posteriormente a un repositorio nuevo:
+```text
+https://github.com/FabianaLealdaw/Polyglot-lab_Final_web.git
+```
+
+Para subir nuevos cambios:
 
 ```bash
-git init
 git add .
-git commit -m "Initial commit Trabajo Final"
-git branch -M main
-git remote add origin URL_DEL_NUEVO_REPOSITORIO
-git push -u origin main
+git commit -m "Describe your changes"
+git push
 ```
