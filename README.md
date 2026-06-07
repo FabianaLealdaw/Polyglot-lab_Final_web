@@ -1,25 +1,5 @@
 # Polyglot Lab - Trabajo Final
 
-Proyecto web independiente reutilizado a partir de una copia del proyecto Polyglot Lab.
+Repositorio en Github: https://github.com/FabianaLealdaw/Polyglot-lab_Final_web
 
-## Páginas principales
-
-- `index.html`
-- `views/gallery.html`
-- `views/contact.html`
-
-## Estado Git
-
-Este proyecto está conectado al repositorio independiente:
-
-```text
-https://github.com/FabianaLealdaw/Polyglot-lab_Final_web.git
-```
-
-Para subir nuevos cambios:
-
-```bash
-git add .
-git commit -m "Describe your changes"
-git push
-```
+Hosting en Vercel: polyglot-lab-final-web-git-main-fabianalealdaws-projects.vercel.app
