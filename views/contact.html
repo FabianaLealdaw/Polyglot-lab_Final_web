@@ -59,6 +59,7 @@
     </header>
 
     <main>
+      <!-- Contact page with validated form and dynamic road route map. -->
       <section class="page-section" aria-labelledby="contact-title">
         <div class="container">
           <h1 id="contact-title" class="section-title">Contact</h1>
@@ -182,6 +183,7 @@
       </section>
     </main>
 
+    <!-- Company footer with legal notice, secondary menu and social links. -->
     <footer class="site-footer">
       <div class="container">
         <div class="row gy-4">
@@ -228,6 +230,7 @@
       (() => {
         const form = document.getElementById("contactForm");
 
+        // Bootstrap validation: stop submit until required fields are valid.
         form.addEventListener("submit", (event) => {
           if (!form.checkValidity()) {
             event.preventDefault();

@@ -1,12 +1,15 @@
 :root {
+  /* Project color palette used together with Bootstrap utilities. */
   --cream: #fcfae7;
   --mint: #b0d7c3;
   --coral: #df6d69;
   --ink: #545454;
+  --header-height: 110px;
 }
 
 body {
   min-height: 100vh;
+  padding-top: var(--header-height);
   color: var(--ink);
   background: linear-gradient(135deg, #fcfae7 0%, #eef6df 100%);
   font-family: Arial, Helvetica, sans-serif;
@@ -17,11 +20,17 @@ a {
 }
 
 .site-header {
+  /* Fixed header keeps navigation visible while scrolling. */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
   background-color: var(--mint);
 }
 
 .navbar {
-  min-height: 110px;
+  min-height: var(--header-height);
 }
 
 .navbar-brand img,
@@ -81,15 +90,36 @@ a {
 }
 
 .learning-card {
+  /* Custom card theme over Bootstrap card structure. */
   border: 2px solid rgba(176, 215, 195, 0.9);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.58);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.learning-card-img {
+  height: 180px;
+  object-fit: cover;
 }
 
 .learning-card .card-title {
   color: var(--coral);
   font-weight: 800;
+}
+
+.learning-card .btn-primary {
+  color: var(--ink);
+  background-color: var(--mint);
+  border-color: var(--mint);
+  font-weight: 700;
+}
+
+.learning-card .btn-primary:hover,
+.learning-card .btn-primary:focus {
+  color: var(--cream);
+  background-color: var(--coral);
+  border-color: var(--coral);
 }
 
 .accordion {
@@ -132,6 +162,7 @@ a {
 }
 
 .gallery-item img:hover {
+  /* Visual hover effect required for the gallery page. */
   transform: scale(1.06);
   filter: saturate(1.12) contrast(1.05);
 }
@@ -202,6 +233,7 @@ a {
 }
 
 .map-frame {
+  /* Leaflet map container; height changes on responsive breakpoints. */
   width: 100%;
   min-height: 520px;
   border: 3px solid var(--coral);
@@ -312,6 +344,10 @@ a {
 }
 
 @media (max-width: 991.98px) {
+  :root {
+    --header-height: 92px;
+  }
+
   .navbar {
     min-height: auto;
     padding: 1rem 0;
