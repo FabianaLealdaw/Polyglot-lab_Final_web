@@ -4,52 +4,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!mapElement || typeof L === "undefined") return;
 
-  const masterD = [41.38535, 2.14672];
+  const masterD = L.latLng(41.38535, 2.14672);
+  const defaultOrigin = L.latLng(41.38702, 2.17005);
   const map = L.map(mapElement).setView(masterD, 13);
+  let routeControl = null;
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors",
   }).addTo(map);
 
-  const businessMarker = L.marker(masterD).addTo(map);
-  businessMarker.bindPopup("MasterD Barcelona").openPopup();
+  L.marker(masterD).addTo(map).bindPopup("MasterD Barcelona").openPopup();
 
-  // Recalculate
+  const updateDirectionsLink = (origin = defaultOrigin) => {
+    if (!directionsLink) return;
+
+    const base = "https://www.google.com/maps/dir/?api=1";
+    const destination = "destination=41.38535,2.14672";
+
+    directionsLink.href = origin
+      ? `${base}&origin=${origin.lat},${origin.lng}&${destination}`
+      : `${base}&${destination}`;
+  };
+
+  const drawRoadRoute = (origin) => {
+    if (typeof L.Routing === "undefined") {
+      map.fitBounds([origin, masterD], { padding: [40, 40] });
+      return;
+    }
+
+    if (routeControl) {
+      map.removeControl(routeControl);
+    }
+
+    routeControl = L.Routing.control({
+      waypoints: [origin, masterD],
+      routeWhileDragging: false,
+      addWaypoints: false,
+      fitSelectedRoutes: true,
+      showAlternatives: false,
+      lineOptions: {
+        styles: [{ color: "#df6d69", opacity: 0.9, weight: 6 }],
+      },
+      createMarker: (index, waypoint) => {
+        const label = index === 0 ? "Route start" : "MasterD Barcelona";
+        return L.marker(waypoint.latLng).bindPopup(label);
+      },
+    }).addTo(map);
+  };
+
+  updateDirectionsLink();
+  drawRoadRoute(defaultOrigin);
+
   requestAnimationFrame(() => {
     map.invalidateSize();
   });
-
-  if (directionsLink) {
-    directionsLink.href =
-          "https://www.google.com/maps/dir/?api=1&destination=41.38535,2.14672";
-  }
 
   if (!navigator.geolocation) return;
 
   navigator.geolocation.getCurrentPosition(
     ({ coords }) => {
-      const client = [coords.latitude, coords.longitude];
-
-      if (directionsLink) {
-        directionsLink.href =
-          `https://www.google.com/maps/dir/?api=1&origin=${client[0]},${client[1]}&destination=41.38535,2.14672`;
-      }
-
-      const userMarker = L.marker(client).addTo(map);
-      userMarker.bindPopup("Your location").openPopup();
-      L.polyline([client, masterD], {
-        color: "#e86b63",
-        weight: 5,
-        opacity: 0.85,
-      }).addTo(map);
-      map.fitBounds([client, masterD], { padding: [40, 40] });
+      const userLocation = L.latLng(coords.latitude, coords.longitude);
+      updateDirectionsLink(userLocation);
+      drawRoadRoute(userLocation);
 
       requestAnimationFrame(() => {
         map.invalidateSize();
       });
     },
     () => {
-      map.setView(masterD, 14);
+      updateDirectionsLink(defaultOrigin);
+      drawRoadRoute(defaultOrigin);
       requestAnimationFrame(() => {
         map.invalidateSize();
       });
