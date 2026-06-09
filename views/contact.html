@@ -143,9 +143,11 @@
                   ></textarea>
                 </div>
 
+                <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+
                 <div class="d-flex gap-3 flex-wrap">
-                  <button type="submit" class="btn btn-light">Send</button>
-                  <button type="reset" class="btn btn-outline-light">Reset</button>
+                  <button type="submit" class="btn btn-mint">Send</button>
+                  <button type="reset" class="btn btn-outline-cream">Reset</button>
                 </div>
               </form>
             </div>
@@ -229,15 +231,30 @@
     <script>
       (() => {
         const form = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
 
         // Bootstrap validation
         form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
           if (!form.checkValidity()) {
-            event.preventDefault();
             event.stopPropagation();
+            formMessage.textContent = "";
+            formMessage.classList.remove("is-visible");
+            form.classList.add("was-validated");
+            return;
           }
 
-          form.classList.add("was-validated");
+          form.reset();
+          form.classList.remove("was-validated");
+          formMessage.textContent = "Your message has been sent successfully.";
+          formMessage.classList.add("is-visible");
+        });
+
+        form.addEventListener("reset", () => {
+          formMessage.textContent = "";
+          formMessage.classList.remove("is-visible");
+          form.classList.remove("was-validated");
         });
       })();
     </script>

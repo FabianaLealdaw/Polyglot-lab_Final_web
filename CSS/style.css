@@ -1,17 +1,27 @@
 :root {
   /* color palette */
   --cream: #fcfae7;
+  --cream-soft: #eef6df;
   --mint: #b0d7c3;
   --coral: #df6d69;
   --ink: #545454;
   --header-height: 110px;
+  --cream-glass: rgba(252, 250, 231, 0.58);
+  --cream-glass-soft: rgba(252, 250, 231, 0.52);
+  --cream-glass-light: rgba(252, 250, 231, 0.38);
+  --shadow-soft: rgba(84, 84, 84, 0.12);
+  --overlay-dark: rgba(84, 84, 84, 0.78);
+  --mint-border: rgba(176, 215, 195, 0.9);
+  --ink-border-soft: rgba(84, 84, 84, 0.35);
+  --ink-border: rgba(84, 84, 84, 0.45);
+  --coral-focus: rgba(223, 109, 105, 0.25);
 }
 
 body {
   min-height: 100vh;
   padding-top: var(--header-height);
   color: var(--ink);
-  background: linear-gradient(135deg, #fcfae7 0%, #eef6df 100%);
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-soft) 100%);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -44,20 +54,20 @@ a {
   gap: 1rem;
 }
 
-.nav-link {
+.navbar-nav .nav-link {
   color: var(--cream);
   font-size: 1.1rem;
   font-weight: 700;
 }
 
-.nav-link:focus,
-.nav-link:hover,
-.nav-link.active {
-  color: var(--ink);
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  color: var(--coral);
 }
 
 .navbar-toggler {
-  border-color: rgba(84, 84, 84, 0.35);
+  border-color: var(--ink-border-soft);
 }
 
 .navbar-toggler-icon {
@@ -91,10 +101,10 @@ a {
 
 .learning-card {
   /* Cards */
-  border: 2px solid rgba(176, 215, 195, 0.9);
+  border: 2px solid var(--mint-border);
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  background-color: var(--cream-glass);
+  box-shadow: 0 10px 24px var(--shadow-soft);
   overflow: hidden;
 }
 
@@ -108,15 +118,15 @@ a {
   font-weight: 800;
 }
 
-.learning-card .btn-primary {
+.learning-card .btn-mint {
   color: var(--ink);
   background-color: var(--mint);
   border-color: var(--mint);
   font-weight: 700;
 }
 
-.learning-card .btn-primary:hover,
-.learning-card .btn-primary:focus {
+.learning-card .btn-mint:hover,
+.learning-card .btn-mint:focus {
   color: var(--cream);
   background-color: var(--coral);
   border-color: var(--coral);
@@ -137,7 +147,7 @@ a {
 
 .accordion-button:focus {
   border-color: var(--coral);
-  box-shadow: 0 0 0 0.25rem rgba(223, 109, 105, 0.25);
+  box-shadow: 0 0 0 0.25rem var(--coral-focus);
 }
 
 .gallery-grid {
@@ -149,8 +159,8 @@ a {
   margin: 0;
   overflow: hidden;
   border-radius: 16px;
-  background-color: #fff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  background-color: var(--cream);
+  box-shadow: 0 10px 24px var(--shadow-soft);
 }
 
 .gallery-item img {
@@ -175,7 +185,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.78);
+  background-color: var(--overlay-dark);
 }
 
 #modal.is-visible {
@@ -194,7 +204,7 @@ a {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-  color: #fff;
+  color: var(--cream);
   background: transparent;
   border: 0;
   font-size: 2.4rem;
@@ -205,31 +215,59 @@ a {
 .map-card,
 .contact-info {
   border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px var(--shadow-soft);
 }
 
 .contact-form {
   height: 100%;
   padding: 2rem;
-  color: #fff9e8;
+  color: var(--cream);
   background-color: var(--coral);
 }
 
 .contact-form .form-control {
   border: 0;
-  border-bottom: 2px solid rgba(84, 84, 84, 0.45);
+  border-bottom: 2px solid var(--ink-border);
   border-radius: 0;
   background-color: transparent;
 }
 
 .contact-form .form-control:focus {
-  border-color: #fff9e8;
+  border-color: var(--cream);
   box-shadow: none;
+}
+
+.contact-form .invalid-feedback {
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.contact-form .form-control.is-invalid,
+.contact-form .was-validated .form-control:invalid {
+  border-color: var(--cream);
+  background-image: none;
+}
+
+.contact-form .form-control.is-valid,
+.contact-form .was-validated .form-control:valid {
+  border-color: var(--mint);
+  background-image: none;
+}
+
+.form-message {
+  display: none;
+  margin-bottom: 1.5rem;
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.form-message.is-visible {
+  display: block;
 }
 
 .map-card {
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.52);
+  background-color: var(--cream-glass-soft);
 }
 
 .btn-mint {
@@ -239,11 +277,24 @@ a {
   font-weight: 700;
 }
 
+.btn-outline-cream {
+  color: var(--cream);
+  border-color: var(--cream);
+  font-weight: 700;
+}
+
+.btn-outline-cream:hover,
+.btn-outline-cream:focus {
+  color: var(--ink);
+  background-color: var(--cream);
+  border-color: var(--cream);
+}
+
 .btn-mint:hover,
 .btn-mint:focus {
-  color: var(--cream);
-  background-color: var(--coral);
-  border-color: var(--coral);
+  color: var(--ink);
+  background-color: var(--cream);
+  border-color: var(--cream);
 }
 
 .map-frame {
@@ -268,7 +319,7 @@ a {
   padding: 2rem;
   text-align: center;
   border: 2px solid var(--coral);
-  background-color: rgba(255, 255, 255, 0.38);
+  background-color: var(--cream-glass-light);
 }
 
 .site-footer {
@@ -395,14 +446,14 @@ a {
     gap: 0.25rem;
   }
 
-  .nav-link {
-    color: var(--ink);
+  .navbar-nav .nav-link {
+    color: var(--cream);
   }
 
-  .nav-link:focus,
-  .nav-link:hover,
-  .nav-link.active {
-    color: var(--cream);
+  .navbar-nav .nav-link:focus,
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: var(--coral);
   }
 
   .page-section {
