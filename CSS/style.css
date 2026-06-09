@@ -1,5 +1,5 @@
 :root {
-  /* Project color palette used together with Bootstrap utilities. */
+  /* color palette */
   --cream: #fcfae7;
   --mint: #b0d7c3;
   --coral: #df6d69;
@@ -20,7 +20,7 @@ a {
 }
 
 .site-header {
-  /* Fixed header keeps navigation visible while scrolling. */
+  /* Navbar */
   position: fixed;
   top: 0;
   right: 0;
@@ -90,7 +90,7 @@ a {
 }
 
 .learning-card {
-  /* Custom card theme over Bootstrap card structure. */
+  /* Cards */
   border: 2px solid rgba(176, 215, 195, 0.9);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.58);
@@ -162,7 +162,7 @@ a {
 }
 
 .gallery-item img:hover {
-  /* Visual hover effect required for the gallery page. */
+  /* hover effect */
   transform: scale(1.06);
   filter: saturate(1.12) contrast(1.05);
 }
@@ -232,8 +232,22 @@ a {
   background-color: rgba(255, 255, 255, 0.52);
 }
 
+.btn-mint {
+  color: var(--ink);
+  background-color: var(--mint);
+  border-color: var(--mint);
+  font-weight: 700;
+}
+
+.btn-mint:hover,
+.btn-mint:focus {
+  color: var(--cream);
+  background-color: var(--coral);
+  border-color: var(--coral);
+}
+
 .map-frame {
-  /* Leaflet map container; height changes on responsive breakpoints. */
+  /* Leaflet map container */
   width: 100%;
   min-height: 520px;
   border: 3px solid var(--coral);

@@ -59,7 +59,7 @@
     </header>
 
     <main>
-      <!-- Contact page with validated form and dynamic road route map. -->
+      <!-- Contact page -->
       <section class="page-section" aria-labelledby="contact-title">
         <div class="container">
           <h1 id="contact-title" class="section-title">Contact</h1>
@@ -161,7 +161,7 @@
                 ></div>
                 <a
                   id="directions-link"
-                  class="btn btn-primary mt-4"
+                  class="btn btn-mint mt-4"
                   href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38702,2.17005&amp;destination=41.38535,2.14672"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -183,7 +183,7 @@
       </section>
     </main>
 
-    <!-- Company footer with legal notice, secondary menu and social links. -->
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="container">
         <div class="row gy-4">
@@ -230,7 +230,7 @@
       (() => {
         const form = document.getElementById("contactForm");
 
-        // Bootstrap validation: stop submit until required fields are valid.
+        // Bootstrap validation
         form.addEventListener("submit", (event) => {
           if (!form.checkValidity()) {
             event.preventDefault();

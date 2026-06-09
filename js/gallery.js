@@ -6,14 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!modal || !modalImg) return;
 
-  // Hide the enlarged image preview.
   const closeModal = () => {
     modal.classList.remove("is-visible");
     modal.setAttribute("aria-hidden", "true");
   };
 
   galleryImages.forEach((image) => {
-    // Open the modal with the selected gallery image.
     image.addEventListener("click", () => {
       modalImg.src = image.src;
       modalImg.alt = image.alt;
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Close the modal when the user clicks outside the image.
   modal.addEventListener("click", (event) => {
     if (event.target === modal) closeModal();
   });
@@ -31,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closeButton.addEventListener("click", closeModal);
   }
 
-  // Allow keyboard users to close the preview.
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeModal();
   });

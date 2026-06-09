@@ -9,14 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const map = L.map(mapElement).setView(masterD, 13);
   let routeControl = null;
 
-  // OpenStreetMap base layer used by Leaflet.
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors",
   }).addTo(map);
 
   L.marker(masterD).addTo(map).bindPopup("MasterD Barcelona").openPopup();
 
-  // Keep the external Google Maps route link synchronized with the origin.
   const updateDirectionsLink = (origin = defaultOrigin) => {
     if (!directionsLink) return;
 
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
       : `${base}&${destination}`;
   };
 
-  // Draw a real road route instead of a straight line.
   const drawRoadRoute = (origin) => {
     if (typeof L.Routing === "undefined") {
       map.fitBounds([origin, masterD], { padding: [40, 40] });
@@ -64,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!navigator.geolocation) return;
 
-  // Use the user's location when permission is granted; otherwise keep Barcelona.
   navigator.geolocation.getCurrentPosition(
     ({ coords }) => {
       const userLocation = L.latLng(coords.latitude, coords.longitude);
