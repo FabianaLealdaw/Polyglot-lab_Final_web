@@ -10,8 +10,8 @@
     >
     <link rel="stylesheet" href="./CSS/style.css">
   </head>
-  <body>
-    <header class="site-header">
+  <body class="bg-light text-dark">
+    <header class="site-header fixed-top">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="./index.html">
@@ -34,15 +34,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pt-3 pt-lg-0 gap-lg-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                <a class="nav-link fw-bold fs-5 active" aria-current="page" href="./index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./views/gallery.html">Gallery</a>
+                <a class="nav-link fw-bold fs-5" href="./views/gallery.html">Gallery</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./views/contact.html">Contact</a>
+                <a class="nav-link fw-bold fs-5" href="./views/contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -52,10 +52,10 @@
 
     <main>
       <!-- Section 1: Bootstrap carousel con 5 imágenes -->
-      <section class="page-section d-none d-lg-block" aria-labelledby="carousel-title">
+      <section class="py-5 d-none d-lg-block" aria-labelledby="carousel-title">
         <div class="container">
-          <h1 id="carousel-title" class="section-title">Polyglot Lab</h1>
-          <p class="section-subtitle">Languages through practice, culture and real conversation.</p>
+          <h1 id="carousel-title" class="display-3 fw-bold text-center text-dark">Polyglot Lab</h1>
+          <p class="lead text-center mx-auto mb-5 section-subtitle">Languages through practice, culture and real conversation.</p>
 
           <div
             id="polyglotCarousel"
@@ -129,12 +129,12 @@
       </section>
 
       <!-- Section 2: 4 Bootstrap cards -->
-      <section class="page-section" aria-labelledby="cards-title">
+      <section class="py-5" aria-labelledby="cards-title">
         <div class="container">
-          <h2 id="cards-title" class="section-title">How we learn</h2>
+          <h2 id="cards-title" class="display-4 fw-bold text-center text-dark">How we learn</h2>
           <div class="row g-4 mt-2">
             <div class="col-12 col-sm-6 col-lg-3">
-              <article class="card h-100 learning-card">
+              <article class="card h-100 overflow-hidden rounded-3 shadow learning-card">
                 <img
                   src="./assets/images/gallery/clase6.jpg"
                   class="card-img-top learning-card-img"
@@ -143,14 +143,14 @@
                   height="2667"
                 >
                 <div class="card-body">
-                  <h3 class="card-title h5">Speaking practice</h3>
+                  <h3 class="card-title h5 text-danger fw-bold">Speaking practice</h3>
                   <p class="card-text">Real conversations from the first lessons.</p>
-                  <a class="btn btn-mint mt-3" href="./views/contact.html">Go to contact</a>
+                  <a class="btn btn-success mt-3" href="./views/contact.html">Go to contact</a>
                 </div>
               </article>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
-              <article class="card h-100 learning-card">
+              <article class="card h-100 overflow-hidden rounded-3 shadow learning-card">
                 <img
                   src="./assets/images/gallery/clase7.jpg"
                   class="card-img-top learning-card-img"
@@ -159,14 +159,14 @@
                   height="2667"
                 >
                 <div class="card-body">
-                  <h3 class="card-title h5">Small groups</h3>
+                  <h3 class="card-title h5 text-danger fw-bold">Small groups</h3>
                   <p class="card-text">Close support and active participation for every student.</p>
-                  <a class="btn btn-mint mt-3" href="./views/contact.html">Go to contact</a>
+                  <a class="btn btn-success mt-3" href="./views/contact.html">Go to contact</a>
                 </div>
               </article>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
-              <article class="card h-100 learning-card">
+              <article class="card h-100 overflow-hidden rounded-3 shadow learning-card">
                 <img
                   src="./assets/images/gallery/clase8.jpg"
                   class="card-img-top learning-card-img"
@@ -175,14 +175,14 @@
                   height="5304"
                 >
                 <div class="card-body">
-                  <h3 class="card-title h5">Culture focus</h3>
+                  <h3 class="card-title h5 text-danger fw-bold">Culture focus</h3>
                   <p class="card-text">Language connected to everyday life and culture.</p>
-                  <a class="btn btn-mint mt-3" href="./views/contact.html">Go to contact</a>
+                  <a class="btn btn-success mt-3" href="./views/contact.html">Go to contact</a>
                 </div>
               </article>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
-              <article class="card h-100 learning-card">
+              <article class="card h-100 overflow-hidden rounded-3 shadow learning-card">
                 <img
                   src="./assets/images/gallery/clase9.jpg"
                   class="card-img-top learning-card-img"
@@ -191,9 +191,9 @@
                   height="4000"
                 >
                 <div class="card-body">
-                  <h3 class="card-title h5">Flexible paths</h3>
+                  <h3 class="card-title h5 text-danger fw-bold">Flexible paths</h3>
                   <p class="card-text">In-person and online options adapted to each learner.</p>
-                  <a class="btn btn-mint mt-3" href="./views/contact.html">Go to contact</a>
+                  <a class="btn btn-success mt-3" href="./views/contact.html">Go to contact</a>
                 </div>
               </article>
             </div>
@@ -202,9 +202,9 @@
       </section>
 
       <!-- Section 3: Bootstrap accordion. -->
-      <section class="page-section" aria-labelledby="bootstrap-title">
+      <section class="py-5 d-none d-lg-block" aria-labelledby="bootstrap-title">
         <div class="container">
-          <h2 id="bootstrap-title" class="section-title">Student questions</h2>
+          <h2 id="bootstrap-title" class="display-4 fw-bold text-center text-dark">Student questions</h2>
           <div class="accordion mx-auto mt-4" id="studentQuestions">
             <div class="accordion-item">
               <h3 class="accordion-header">
@@ -248,12 +248,12 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer py-5 mt-4">
       <div class="container">
         <div class="row gy-4">
           <div class="col-12 col-lg-4">
             <img
-              class="footer-logo"
+              class="footer-logo mb-4"
               src="./assets/images/Logo_PL.png"
               alt="Polyglot Lab"
               width="794"
@@ -264,15 +264,15 @@
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <h2 class="h5">Menu</h2>
-            <nav class="footer-nav">
-              <a href="./index.html">Home</a>
-              <a href="./views/gallery.html">Gallery</a>
-              <a href="./views/contact.html">Contact</a>
+            <nav class="nav flex-column gap-2 footer-nav">
+              <a class="link-dark text-decoration-none" href="./index.html">Home</a>
+              <a class="link-dark text-decoration-none" href="./views/gallery.html">Gallery</a>
+              <a class="link-dark text-decoration-none" href="./views/contact.html">Contact</a>
             </nav>
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <h2 class="h5">Social media</h2>
-            <div class="social-links">
+            <div class="d-flex gap-4 social-links">
               <a href="https://www.linkedin.com/" aria-label="LinkedIn">
                 <span class="social-icon social-icon-linkedin" aria-hidden="true">in</span>
               </a>

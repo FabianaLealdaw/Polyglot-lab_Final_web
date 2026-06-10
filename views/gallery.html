@@ -10,8 +10,8 @@
     >
     <link rel="stylesheet" href="../CSS/style.css">
   </head>
-  <body>
-    <header class="site-header">
+  <body class="bg-light text-dark">
+    <header class="site-header fixed-top">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="../index.html">
@@ -34,15 +34,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pt-3 pt-lg-0 gap-lg-3">
               <li class="nav-item">
-                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link fw-bold fs-5" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./gallery.html">Gallery</a>
+                <a class="nav-link fw-bold fs-5 active" aria-current="page" href="./gallery.html">Gallery</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact</a>
+                <a class="nav-link fw-bold fs-5" href="./contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -52,74 +52,92 @@
 
     <main>
       <!-- Responsive gallery -->
-      <section class="page-section" aria-labelledby="gallery-title">
+      <section class="py-5" aria-labelledby="gallery-title">
         <div class="container">
-          <h1 id="gallery-title" class="section-title">Gallery</h1>
-          <p class="section-subtitle">A glimpse of our learning spaces and activities.</p>
+          <h1 id="gallery-title" class="display-3 fw-bold text-center text-dark">Gallery</h1>
+          <p class="lead text-center mx-auto mb-5 section-subtitle">A glimpse of our learning spaces and activities.</p>
 
           <div id="gallery" class="row g-4 gallery-grid">
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase1.jpg" alt="Online language class" width="7276" height="4856">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase1.jpg" alt="Online language class" width="7276" height="4856">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase2.jpg" alt="Student studying languages" width="7360" height="4912">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase2.jpg" alt="Student studying languages" width="7360" height="4912">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase3.jpg" alt="Children reading together" width="6000" height="4000">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase3.jpg" alt="Children reading together" width="6000" height="4000">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase4.jpg" alt="Private remote lesson" width="6655" height="4437">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase4.jpg" alt="Private remote lesson" width="6655" height="4437">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase5.jpg" alt="Digital language lab" width="6075" height="4050">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase5.jpg" alt="Digital language lab" width="6075" height="4050">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase6.jpg" alt="Interactive video class" width="4000" height="2667">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase6.jpg" alt="Interactive video class" width="4000" height="2667">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase7.jpg" alt="Teacher leading an online session" width="4000" height="2667">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase7.jpg" alt="Teacher leading an online session" width="4000" height="2667">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase8.jpg" alt="Music and language activity" width="7952" height="5304">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase8.jpg" alt="Music and language activity" width="7952" height="5304">
               </figure>
             </div>
             <div class="col-12 col-sm-6 col-lg-4">
-              <figure class="gallery-item">
-                <img src="../assets/images/gallery/clase9.jpg" alt="Student in a remote language lesson" width="6000" height="4000">
+              <figure class="gallery-item overflow-hidden rounded-4 shadow">
+                <img class="w-100" src="../assets/images/gallery/clase9.jpg" alt="Student in a remote language lesson" width="6000" height="4000">
               </figure>
             </div>
           </div>
 
-          <div id="modal" aria-hidden="true">
-            <button id="modal-close" type="button" aria-label="Close image preview">×</button>
-            <img id="modal-img" src="../assets/images/gallery/clase1.jpg" alt="Enlarged gallery image" width="7276" height="4856">
+          <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+              <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0 text-end">
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white mb-3"
+                    data-bs-dismiss="modal"
+                    aria-label="Close image preview"
+                  ></button>
+                  <img
+                    id="galleryModalImg"
+                    class="img-fluid rounded-4 shadow"
+                    src="../assets/images/gallery/clase1.jpg"
+                    alt="Enlarged gallery image"
+                    width="7276"
+                    height="4856"
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer py-5 mt-4">
       <div class="container">
         <div class="row gy-4">
           <div class="col-12 col-lg-4">
             <img
-              class="footer-logo"
+              class="footer-logo mb-4"
               src="../assets/images/Logo_PL.png"
               alt="Polyglot Lab"
               width="794"
@@ -130,15 +148,15 @@
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <h2 class="h5">Menu</h2>
-            <nav class="footer-nav">
-              <a href="../index.html">Home</a>
-              <a href="./gallery.html">Gallery</a>
-              <a href="./contact.html">Contact</a>
+            <nav class="nav flex-column gap-2 footer-nav">
+              <a class="link-dark text-decoration-none" href="../index.html">Home</a>
+              <a class="link-dark text-decoration-none" href="./gallery.html">Gallery</a>
+              <a class="link-dark text-decoration-none" href="./contact.html">Contact</a>
             </nav>
           </div>
           <div class="col-12 col-sm-6 col-lg-4">
             <h2 class="h5">Social media</h2>
-            <div class="social-links">
+            <div class="d-flex gap-4 social-links">
               <a href="https://www.linkedin.com/" aria-label="LinkedIn">
                 <span class="social-icon social-icon-linkedin" aria-hidden="true">in</span>
               </a>
@@ -152,7 +170,7 @@
       </div>
     </footer>
 
-    <script src="../js/gallery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/gallery.js"></script>
   </body>
 </html>
