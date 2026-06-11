@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!mapElement || typeof L === "undefined") return;
 
   const masterD = L.latLng(41.38535, 2.14672);
-  const defaultOrigin = L.latLng(41.38702, 2.17005);
   const map = L.map(mapElement).setView(masterD, 13);
   let routeControl = null;
 
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   L.marker(masterD).addTo(map).bindPopup("MasterD Barcelona").openPopup();
 
-  const updateDirectionsLink = (origin = defaultOrigin) => {
+  const updateDirectionsLink = (origin = null) => {
     if (!directionsLink) return;
 
     const base = "https://www.google.com/maps/dir/?api=1";
@@ -52,8 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }).addTo(map);
   };
 
-  updateDirectionsLink();
-  drawRoadRoute(defaultOrigin);
+  const showMasterDLocation = () => {
+    if (routeControl) {
+      map.removeControl(routeControl);
+      routeControl = null;
+    }
+
+    map.setView(masterD, 15);
+    updateDirectionsLink();
+  };
+
+  showMasterDLocation();
 
   requestAnimationFrame(() => {
     map.invalidateSize();
@@ -72,8 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     () => {
-      updateDirectionsLink(defaultOrigin);
-      drawRoadRoute(defaultOrigin);
+      showMasterDLocation();
       requestAnimationFrame(() => {
         map.invalidateSize();
       });
